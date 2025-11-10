@@ -1,0 +1,39 @@
+Maintainer notes
+================
+
+Adding a new archive key
+------------------------
+
+make keyrings/debian-archive-keyring.pgp
+gpg --no-default-keyring --keyring keyrings/debian-archive-keyring.pgp \
+  --no-auto-check-trustdb --import $KEYFILE
+jetring-gen keyrings/debian-archive-keyring.pgp~ \
+  keyrings/debian-archive-keyring.pgp \
+  "add jessie automatic key (security)"
+mv add-9D6D8F6BC857C906 add-jessie-security-automatic
+jetring-accept active-keys/ add-jessie-security-automatic
+
+Note that the filenames used for the changeset filenames must never be
+subsets of another changeset filename, or the keyring build will
+over-eagerly remove them and then fail.
+
+Removing an archive key
+-----------------------
+
+[There should be a better way of doing this]
+
+Copy the corresponding entry from active-keys/index to removed-keys/index
+Move active-keys/add-$foo to removed-keys/
+
+Confirm that the result was as expected by:
+
+make clean
+make keyrings/debian-archive-keyring.pgp
+make keyrings/debian-archive-removed-keys.pgp
+
+and checking the contents of each keyring
+
+Add an entry to debian/debian-archive-keyring.maintscript:
+
+rm_conffile /etc/apt/trusted.gpg.d/debian-archive-${foo}.asc ${version}~~
+

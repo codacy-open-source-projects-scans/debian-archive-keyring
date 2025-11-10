@@ -1,0 +1,7 @@
+debian-archive-keyring (2025.1) unstable; urgency=medium
+
+  Certificate (keyring) files in /usr/share/keyrings now have the
+  file extension .pgp, rather than .gpg. Compatibility links are
+  provided and will be removed in Debian 14 'forky'.
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Wed, 19 Mar 2025 06:57:24 +0000

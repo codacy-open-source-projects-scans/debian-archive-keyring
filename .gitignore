@@ -1,0 +1,5 @@
+keyrings/*.gpg
+keyrings/*.lastchangeset
+keyrings/*.pgp
+trustdb.gpg
+trusted.pgp/

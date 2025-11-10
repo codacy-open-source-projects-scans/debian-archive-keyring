@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+DIR=/usr/share/keyrings
+if [ ! -e $DIR/archive.gpg ]; then
+	ln -s debian-archive-keyring.pgp $DIR/archive.gpg
+fi
+if [ ! -e $DIR/archive.pgp ]; then
+	ln -s debian-archive-keyring.pgp $DIR/archive.pgp
+fi

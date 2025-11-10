@@ -1,0 +1,6 @@
+usr/share/keyrings/debian-archive-keyring.pgp
+usr/share/keyrings/debian-archive-keyring.gpg
+usr/share/keyrings/debian-archive-*-automatic.pgp
+usr/share/keyrings/debian-archive-*-automatic.gpg
+usr/share/keyrings/debian-archive-*-stable.pgp
+usr/share/keyrings/debian-archive-*-stable.gpg
